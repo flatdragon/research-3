@@ -7,7 +7,6 @@ stages:
 dependencies:
   stage: build
   cache:
-    key: ${CI_COMMIT_REF_SLUG}
     paths:
       - node_modules/
   script:
@@ -16,7 +15,6 @@ dependencies:
 test:
   stage: test
   cache:
-    key: ${CI_COMMIT_REF_SLUG}
     paths:
       - node_modules/
     policy: pull
