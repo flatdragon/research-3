@@ -12,9 +12,6 @@ dependencies:
   stage: build
   script:
     - npm ci --prefer-offline --no-audit
-  artifacts:
-    paths:
-      - node_modules/
 
 test:
   stage: test
