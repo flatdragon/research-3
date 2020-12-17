@@ -1,9 +1,8 @@
 image: node:alpine
 stages:
-  - build
-  - test
-build:
-  stage: build
+  - build-and-test
+build-and-test:
+  stage: 'Build & Test'
   cache:
     paths:
       - node_modules/

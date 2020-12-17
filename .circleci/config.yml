@@ -1,24 +1,16 @@
 version: 2.1
 jobs:
-  build:
+  'Build & Test':
     docker:
-      image: 'node:alpine'
+      image: 'circleci/node:14'
     steps:
       - checkout
       - node/with-cache:
           steps:
-            - run: npm install
+            - run: npm ci
             - run: npm run build
-  test:
-    docker:
-      image: 'node:alpine'
-    steps:
-      - checkout
-      - node/with-cache:
-          steps:
             - run: npm test
 workflows:
     build-and-test:
       jobs:
-        - build
-        - test
+        - 'Build & Test'
