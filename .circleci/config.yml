@@ -1,8 +1,8 @@
 version: 2.1
 jobs:
-  'Build & Test':
+  'Build and Test':
     docker:
-      image: 'circleci/node:14'
+      - image: 'node:alpine'
     steps:
       - checkout
       - node/with-cache:
@@ -13,4 +13,4 @@ jobs:
 workflows:
     build-and-test:
       jobs:
-        - 'Build & Test'
+        - 'Build and Test'

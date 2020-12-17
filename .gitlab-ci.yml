@@ -2,17 +2,11 @@ image: node:alpine
 stages:
   - build-and-test
 build-and-test:
-  stage: 'Build & Test'
+  stage: 'Build and Test'
   cache:
     paths:
       - node_modules/
   script:
     - npm ci
-    - npm build
-test:
-  stage: test
-  cache:
-    paths:
-      - node_modules/
-    policy: pull
-  script: npm test
+    - npm run build
+    - npm test
