@@ -11,7 +11,7 @@ cache:
 dependencies:
   stage: build
   script:
-    - npm ci
+    - npm ci --prefer-offline --no-audit
   artifacts:
     paths:
       - node_modules/
