@@ -7,13 +7,12 @@ jobs:
       - checkout
       - restore_cache:
           keys:
-            - node-modules-cache-v1-{{ arch }}-{{ .Branch }}-{{ checksum "package-lock.json" }}
+            - node-modules-cache-v3-{{ arch }}-{{ .Branch }}-{{ checksum "package-lock.json" }}
       - run: npm ci --cache .npm --prefer-offline --no-audit --loglevel error
       - save_cache:
-          key: node-modules-cache-v1-{{ arch }}-{{ .Branch }}-{{ checksum "package-lock.json" }}
+          key: node-modules-cache-v3-{{ arch }}-{{ .Branch }}-{{ checksum "package-lock.json" }}
           paths:
             - .npm/
-      - run: npm run build --if-presents
       - run: npm test
 workflows:
     build-and-test:
