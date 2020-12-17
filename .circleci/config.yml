@@ -14,7 +14,7 @@ jobs:
           paths:
             - .npm/
       - run: npm run build
-      - run: npm test
+      - run: npm test --ignore-scripts
 workflows:
     build-and-test:
       jobs:

@@ -10,4 +10,4 @@ build-and-test:
   script:
     - npm ci --cache .npm --prefer-offline --no-audit --loglevel error
     - npm run build
-    - npm test
+    - npm test --ignore-scripts
