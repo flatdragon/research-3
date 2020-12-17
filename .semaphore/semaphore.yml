@@ -14,7 +14,7 @@ blocks:
           commands:
             - checkout
             - cache restore
-            - npm ci
+            - npm ci --cache .npm --prefer-offline
             - cache store
             - npm run build 
             - npm test

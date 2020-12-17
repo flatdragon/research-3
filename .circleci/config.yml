@@ -8,11 +8,11 @@ jobs:
       - restore_cache:
           keys:
             - node-modules-cache-v1-{{ arch }}-{{ .Branch }}-{{ checksum "package-lock.json" }}
-      - run: npm ci
+      - run: npm ci --cache .npm --prefer-offline
       - save_cache:
           key: node-modules-cache-v1-{{ arch }}-{{ .Branch }}-{{ checksum "package-lock.json" }}
           paths:
-            - node_modules/
+            - .npm/
       - run: npm run build
       - run: npm test
 workflows:
