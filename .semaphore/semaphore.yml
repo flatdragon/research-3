@@ -13,8 +13,8 @@ blocks:
         - name: 'Build and Test'
           commands:
             - checkout
-            - cache restore
+            - cache restore node-modules-cache-v2-$SEMAPHORE_GIT_BRANCH-$(checksum package-lock.json)
             - npm ci --cache .npm --prefer-offline
-            - cache store
+            - cache store node-modules-cache-v2-$SEMAPHORE_GIT_BRANCH-$(checksum package-lock.json) .npm
             - npm run build 
             - npm test
