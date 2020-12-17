@@ -12,6 +12,7 @@ blocks:
       jobs:
         - name: 'Build and Test'
           commands:
+            - apk add --no-cache --update lftp
             - checkout
             - sem-version node 14
             - cache restore
