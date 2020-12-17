@@ -4,7 +4,7 @@ stages:
 build-and-test:
   stage: build-and-test
   cache:
-    key: node-modules-cache-v2-${CI_COMMIT_REF_SLUG}
+    key: node-modules-cache-v1-${CI_COMMIT_REF_SLUG}
     paths:
       - .npm/
   script:
