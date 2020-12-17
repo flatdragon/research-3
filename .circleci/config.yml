@@ -5,11 +5,16 @@ jobs:
       - image: 'node:alpine'
     steps:
       - checkout
-      - node/with-cache:
-          steps:
-            - run: npm ci
-            - run: npm run build
-            - run: npm test
+      - restore_cache:
+          keys:
+            - node-modules-cache-v1-{{ arch }}-{{ .Branch }}-{{ checksum "package-lock.json" }}
+      - run: npm ci
+      - save_cache:
+          key: node-modules-cache-v1-{{ arch }}-{{ .Branch }}-{{ checksum "package-lock.json" }}
+          paths:
+            - node_modules/
+      - run: npm run build
+      - run: npm test
 workflows:
     build-and-test:
       jobs:
