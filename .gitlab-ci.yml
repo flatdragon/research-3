@@ -15,4 +15,6 @@ dependencies:
 
 test:
   stage: test
+  cache:
+    policy: pull
   script: npm test
