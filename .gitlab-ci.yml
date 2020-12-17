@@ -1,9 +1,7 @@
 image: node:alpine
-
 stages:
   - build
   - test
-
 build:
   stage: build
   cache:
@@ -12,7 +10,6 @@ build:
   script:
     - npm ci
     - npm build
-
 test:
   stage: test
   cache:

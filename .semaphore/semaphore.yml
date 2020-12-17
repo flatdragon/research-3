@@ -1,17 +1,16 @@
 version: v1.0
-name: Build & Test
+name: 'Build & Test'
 agent:
   machine:
     type: e1-standard-2
   containers:
     - name: main
-      image: node:alpine
-
+      image: 'node:alpine'
 blocks:
-  - name: Build & Test
+  - name: 'Build & Test'
     task:
       jobs:
-        - name: Build & Test
+        - name: 'Build & Test'
           commands:
             - checkout
             - sem-version node 14

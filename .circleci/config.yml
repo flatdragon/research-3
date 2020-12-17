@@ -2,7 +2,7 @@ version: 2.1
 jobs:
   build:
     docker:
-      image: node:alpine
+      image: 'node:alpine'
     steps:
       - checkout
       - node/with-cache:
@@ -11,7 +11,7 @@ jobs:
             - run: npm run build
   test:
     docker:
-      image: node:alpine
+      image: 'node:alpine'
     steps:
       - checkout
       - node/with-cache:
