@@ -9,5 +9,5 @@ build-and-test:
       - .npm/
   script:
     - npm ci --cache .npm --prefer-offline --no-audit --loglevel error
-    - npm run build
-    - npm test --ignore-scripts
+    - npm run build --if-presents
+    - npm test

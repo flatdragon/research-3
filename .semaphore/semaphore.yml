@@ -16,5 +16,5 @@ blocks:
             - cache restore node-modules-cache-v2-$SEMAPHORE_GIT_BRANCH-$(checksum package-lock.json)
             - npm ci --cache .npm --prefer-offline --no-audit --loglevel error
             - cache store node-modules-cache-v2-$SEMAPHORE_GIT_BRANCH-$(checksum package-lock.json) .npm
-            - npm run build 
-            - npm test --ignore-scripts
+            - npm run build --if-presents
+            - npm run test
