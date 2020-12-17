@@ -4,13 +4,14 @@ stages:
   - build
   - test
 
-dependencies:
+build:
   stage: build
   cache:
     paths:
       - node_modules/
   script:
     - npm ci
+    - npm build
 
 test:
   stage: test

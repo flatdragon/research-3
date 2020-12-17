@@ -1,20 +1,22 @@
 version: v1.0
-name: Test MyApp
+name: Build & Test
 agent:
   machine:
     type: e1-standard-2
-    os_image: ubuntu1804
+  containers:
+    - name: main
+      image: node:alpine
 
 blocks:
-  - name: Test
+  - name: Build & Test
     task:
       jobs:
-        - name: Test
+        - name: Build & Test
           commands:
             - checkout
-            - sem-version node 12
+            - sem-version node 14
             - cache restore
-            - npm install
+            - npm ci
             - cache store
-            - npm run build --if-present
+            - npm run build 
             - npm test
