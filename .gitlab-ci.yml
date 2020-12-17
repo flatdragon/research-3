@@ -4,17 +4,20 @@ stages:
   - build
   - test
 
-cache:
-  paths:
-    - node_modules/
-
 dependencies:
   stage: build
+  cache:
+    key: ${CI_COMMIT_REF_SLUG}
+    paths:
+      - node_modules/
   script:
-    - npm ci --prefer-offline --no-audit
+    - npm ci
 
 test:
   stage: test
   cache:
+    key: ${CI_COMMIT_REF_SLUG}
+    paths:
+      - node_modules/
     policy: pull
   script: npm test
